@@ -20,13 +20,9 @@ const Post = ({ post }) => {
   // ログイン状態を監視するstateを取得 ( Postではないので注意 )
   const { user: currentUser, proxy } = useContext(AuthContext);
 
-  console.log(proxy);
-  console.log(currentUser);
-
   useEffect(() => {
     const fetchUser = async () => {
       const response = await axios.get(`${proxy}/users?userId=${post.userId}`);
-      console.log(`${proxy}/users?userId=${post.userId}`);
       setUser(response.data);
     };
     fetchUser();

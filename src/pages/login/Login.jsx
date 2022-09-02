@@ -6,7 +6,7 @@ import { AuthContext } from "../../state/AuthContext";
 const Login = () => {
   const email = useRef();
   const password = useRef();
-  const { user, isFetching, error, dispatch } = useContext(AuthContext);
+  const { user, isFetching, error, dispatch, proxy } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +17,8 @@ const Login = () => {
         email: email.current.value,
         password: password.current.value,
       },
-      dispatch
+      dispatch,
+      proxy
     );
   };
 

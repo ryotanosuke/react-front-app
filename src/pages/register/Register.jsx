@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import "./Register.css";
 import { Navigate, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../state/AuthContext";
 
 const Regiter = () => {
   const username = useRef();

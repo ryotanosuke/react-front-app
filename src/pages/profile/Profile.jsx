@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Profile.css";
 import TimeLine from "../../components/timelline/TimeLine";
 import Rightbar from "../../components/rightbar/Rightbar";
@@ -6,6 +6,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../state/AuthContext";
 
 const Profile = () => {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;

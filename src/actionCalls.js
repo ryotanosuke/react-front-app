@@ -1,8 +1,7 @@
 import axios from "axios";
 
 // login.jsから呼び出され,userにはアドレスが渡る
-export const loginCall = async (user, dispatch) => {
-  const { proxy } = useContext(AuthContext);
+export const loginCall = async (user, dispatch, proxy) => {
   dispatch({ type: "LOGIN_START" });
   try {
     // サーバーにアドレス(user)を送って一致するオブジェクトを返す
