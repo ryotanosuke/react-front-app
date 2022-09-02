@@ -9,6 +9,8 @@ const Regiter = () => {
   const password = useRef();
   const passwordConfirmation = useRef();
 
+  const { proxy } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -25,7 +27,7 @@ const Regiter = () => {
           password: password.current.value,
         };
         // registerApiを叩く （ オブジェクトを送る ）
-        await axios.post("/auth/register", user);
+        await axios.post(`${proxy}/auth/register`, user);
         navigate("/login");
       } catch (err) {
         console.log(err);

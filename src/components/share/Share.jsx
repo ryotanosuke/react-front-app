@@ -9,6 +9,7 @@ const Share = () => {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
   const desc = useRef();
   const [file, setFile] = useState(null);
+  const { proxy } = useContext(AuthContext);
 
   // 投稿の処理
   const handleSubmit = async (e) => {
@@ -31,14 +32,14 @@ const Share = () => {
 
       try {
         // dataを引き渡し
-        await axios.post("/upload", data);
+        await axios.post(`${proxy}/upload`, data);
       } catch (err) {
         console.log(err);
       }
     }
 
     try {
-      await axios.post("/posts", newPost);
+      await axios.post(`${proxy}/posts`, newPost);
       // リロードしなくても投稿を反映させる
       window.location.reload();
     } catch (err) {

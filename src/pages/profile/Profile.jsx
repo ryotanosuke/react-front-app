@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 
 const Profile = () => {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { proxy } = useContext(AuthContext);
 
   // スキームをステートに保持
   const [user, setUser] = useState({});
@@ -21,7 +22,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       // サーバーはクエリで取得 [ router.get("/" , 関数 ) で取得できる ]
-      const response = await axios.get(`/users?username=${username}`);
+      const response = await axios.get(`${proxy}/users?username=${username}`);
       //ステートのuserにセット
       setUser(response.data);
     };
