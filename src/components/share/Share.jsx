@@ -21,22 +21,22 @@ const Share = () => {
     };
 
     // 画像APIを叩く
-    if (file) {
-      const data = new FormData();
-      const fileName = Date.now() + file.name;
+    // if (file) {
+    //   const data = new FormData();
+    //   const fileName = Date.now() + file.name;
 
-      // fileName と file のプロパティを持つdataを作成
-      data.append("name", fileName);
-      data.append("file", file);
-      newPost.img = fileName;
+    //   // fileName と file のプロパティを持つdataを作成
+    //   data.append("name", fileName);
+    //   data.append("file", file);
+    //   newPost.img = fileName;
 
-      try {
-        // dataを引き渡し
-        await axios.post(`${proxy}/upload`, data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
+    //   try {
+    //     // dataを引き渡し
+    //     await axios.post(`${proxy}/upload`, data);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // }
 
     try {
       await axios.post(`${proxy}/posts`, newPost);
