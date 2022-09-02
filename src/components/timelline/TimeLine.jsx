@@ -19,8 +19,8 @@ const TimeLine = ({ username }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       const response = username
-        ? await axios.get(`${proxy}/posts/profile/${username}`)
-        : await axios.get(`${proxy}/posts/timeline/${user._id}`);
+        ? await axios.get(`/posts/profile/${username}`)
+        : await axios.get(`/posts/timeline/${user._id}`);
       setPosts(
         // dataであることに注意
         response.data

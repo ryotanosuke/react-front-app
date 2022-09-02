@@ -25,8 +25,8 @@ const Post = ({ post }) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await axios.get(`${proxy}/users?userId=${post.userId}`);
-      console.log(`${proxy}/users?userId=${post.userId}`);
+      const response = await axios.get(`/users?userId=${post.userId}`);
+      console.log(`/users?userId=${post.userId}`);
       setUser(response.data);
     };
     fetchUser();
@@ -38,7 +38,7 @@ const Post = ({ post }) => {
       // post._id は投稿の id , currentUser._id はログインしたユーザーの id
       // post._id は queryとして送ってあげる
       // Post.js自体がmapされているため
-      await axios.put(`${proxy}/posts/${post._id}/like`, {
+      await axios.put(`/posts/${post._id}/like`, {
         userId: currentUser._id,
       });
     } catch (err) {}
@@ -53,7 +53,7 @@ const Post = ({ post }) => {
       await axios
 
         // data { } をつける必要がある
-        .delete(`${proxy}/posts/${post._id}`, { data: { userId: post.userId } })
+        .delete(`/posts/${post._id}`, { data: { userId: post.userId } })
         .then((res) => {
           console.log(res.data);
           // リロードしなくても投稿を反映させる
