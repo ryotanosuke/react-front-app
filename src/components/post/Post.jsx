@@ -27,7 +27,6 @@ const Post = ({ post }) => {
     };
     fetchUser();
   }, [post.userId]);
-  np;
 
   //いいねのAPIを叩く
   const handleLike = async () => {
