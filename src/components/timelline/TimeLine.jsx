@@ -10,8 +10,6 @@ const TimeLine = ({ username }) => {
   const [posts, setPosts] = useState([]);
   const { user, proxy } = useContext(AuthContext);
 
-  console.log(proxy);
-
   // 投稿データを取得（ ログインuserデータではないので注意 ）
   // profileからならクエリのnameからフェッチ
   // homeからならcontxtのuserからフェッチ
@@ -19,8 +17,8 @@ const TimeLine = ({ username }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       const response = username
-        ? await axios.get(`/posts/profile/${username}`)
-        : await axios.get(`/posts/timeline/${user._id}`);
+        ? await axios.get(`${proxy}/posts/profile/${username}`)
+        : await axios.get(`${proxy}/posts/timeline/${user._id}`);
       setPosts(
         // dataであることに注意
         response.data
