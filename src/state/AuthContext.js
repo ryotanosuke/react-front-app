@@ -3,21 +3,21 @@ import AuthReducer from "./AuthReducer";
 
 // 最初のユーザーの状態を定義
 const initialState = {
-  // user: JSON.parse(localStorage.getItem("user")) || null,
-  user: {
-    _id: "63019b460deb7acd04366205",
-    username: "yota",
-    email: "yo@yahoo.co.jp",
-    password: "111111",
-    profilePicture: "/person/1.jpeg",
-    coverPicture: "",
-    followers: [],
-    followings: [],
-    isAdmin: false,
-  },
+  user: JSON.parse(localStorage.getItem("user")) || null,
+  // user: {
+  //   _id: "63019b460deb7acd04366205",
+  //   username: "yota",
+  //   email: "yo@yahoo.co.jp",
+  //   password: "111111",
+  //   profilePicture: "/person/1.jpeg",
+  //   coverPicture: "",
+  //   followers: [],
+  //   followings: [],
+  //   isAdmin: false,
+  // },
 
-  // isFetching: false,
-  // error: false,
+  isFetching: false,
+  error: false,
 };
 
 const proxy = "https://real-sns-nodejs.herokuapp.com/api";

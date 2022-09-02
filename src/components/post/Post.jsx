@@ -44,14 +44,11 @@ const Post = ({ post }) => {
 
   const deletePost = async () => {
     try {
-      console.log(post._id);
-      console.log(post.userId);
       await axios
 
         // data { } をつける必要がある
         .delete(`${proxy}/posts/${post._id}`, { data: { userId: post.userId } })
         .then((res) => {
-          console.log(res.data);
           // リロードしなくても投稿を反映させる
           window.location.reload();
         });
