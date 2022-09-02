@@ -18,11 +18,15 @@ const Post = ({ post }) => {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
 
   // ログイン状態を監視するstateを取得 ( Postではないので注意 )
-  const { user: currentUser } = useContext(AuthContext);
+  const { user: currentUser, proxy } = useContext(AuthContext);
+
+  console.log(proxy);
+  console.log(currentUser);
 
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await axios.get(`/users?userId=${post.userId}`);
+      const response = await axios.get(`${proxy}/users?userId=${post.userId}`);
+      console.log(`${proxy}/users?userId=${post.userId}`);
       setUser(response.data);
     };
     fetchUser();
@@ -34,7 +38,9 @@ const Post = ({ post }) => {
       // post._id は投稿の id , currentUser._id はログインしたユーザーの id
       // post._id は queryとして送ってあげる
       // Post.js自体がmapされているため
-      await axios.put(`/posts/${post._id}/like`, { userId: currentUser._id });
+      await axios.put(`${proxy}/posts/${post._id}/like`, {
+        userId: currentUser._id,
+      });
     } catch (err) {}
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
@@ -47,7 +53,7 @@ const Post = ({ post }) => {
       await axios
 
         // data { } をつける必要がある
-        .delete(`/posts/${post._id}`, { data: { userId: post.userId } })
+        .delete(`${proxy}/posts/${post._id}`, { data: { userId: post.userId } })
         .then((res) => {
           console.log(res.data);
           // リロードしなくても投稿を反映させる
