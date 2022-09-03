@@ -103,7 +103,7 @@ const Post = ({ post }) => {
           <div className="postBottomLeft">
             <img
               className="likeIcon"
-              src={PUBLIC_FOLDER + "/heart.png"}
+              src={PUBLIC_FOLDER + "/eart.png"}
               alt=""
               onClick={() => handleLike()}
             />
