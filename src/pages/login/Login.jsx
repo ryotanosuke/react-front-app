@@ -21,9 +21,6 @@ const Login = () => {
       proxy
     );
   };
-
-  console.log(user);
-
   return (
     <div className="login">
       <div className="loginWrapper">

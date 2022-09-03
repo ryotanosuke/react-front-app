@@ -93,7 +93,7 @@ const Post = ({ post }) => {
             className="postImg"
             src={
               // 投稿用の写真 ( post.imgは変数 )
-              // userではなくpostのスキーマなためPUBLIC_FOLDERが必要
+              // userではなくpostのスキーマのためPUBLIC_FOLDERが必要
               PUBLIC_FOLDER + post.img
             }
             alt=""
