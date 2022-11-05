@@ -44,6 +44,7 @@ const Share = () => {
     }
 
     try {
+      console.log(proxy);
       await axios.post(`${proxy}/posts`, newPost);
       // リロードしなくても投稿を反映させる
       window.location.reload();
