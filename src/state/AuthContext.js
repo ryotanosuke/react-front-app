@@ -20,7 +20,7 @@ const initialState = {
   error: false,
 };
 
-const proxy = process.env.REACT_APP_Proxy;
+const proxy = process.env.REACT_APP_PUBLIC_Proxy;
 
 // const proxy = "http://localhost:5000/api";
 
