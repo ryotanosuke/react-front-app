@@ -20,8 +20,7 @@ const initialState = {
   error: false,
 };
 
-const proxy = process.env.REACT_APP_PUBLIC_Proxy;
-
+const proxy = process.env.REACT_APP_PUBLIC_PROXY;
 // const proxy = "http://localhost:5000/api";
 
 // 状態をグローバルに管理する
