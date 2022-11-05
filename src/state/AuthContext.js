@@ -20,7 +20,7 @@ const initialState = {
   error: false,
 };
 
-const proxy = "https://real-sns-nodejs.herokuapp.com/api";
+const proxy = process.env.REACT_APP_Proxy;
 
 // const proxy = "http://localhost:5000/api";
 
