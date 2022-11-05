@@ -75,7 +75,7 @@ const Share = () => {
         <hr className="shareHr" />
         <form
           className="shareButtons"
-          encType="multipart/form-data"
+          // encType="multipart/form-data"
           onSubmit={(e) => {
             handleSubmit(e);
           }}
