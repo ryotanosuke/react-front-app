@@ -21,22 +21,27 @@ const Share = () => {
     };
 
     // 画像APIを叩く
-    // if (file) {
-    //   const data = new FormData();
-    //   const fileName = Date.now() + file.name;
+    if (file) {
+      //キーと値を設定するオブジェクト
+      const data = new FormData();
+      //日付と名前を合体(名前が被らないように)
+      const fileName = Date.now() + file.name;
 
-    //   // fileName と file のプロパティを持つdataを作成
-    //   data.append("name", fileName);
-    //   data.append("file", file);
-    //   newPost.img = fileName;
+      // キーと値を設定する
+      // ( つまりオブジェクト { name : fileName , file : file } )
+      data.append("name", fileName);
+      data.append("file", file);
+      // fileの名前をDBに登録
+      // newPost.img ← おそらく新しく定義している？
+      newPost.img = fileName;
 
-    //   try {
-    //     // dataを引き渡し
-    //     await axios.post(`${proxy}/upload`, data);
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // }
+      try {
+        // dataを引き渡し
+        await axios.post(`${proxy}/upload`, data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
 
     try {
       await axios.post(`${proxy}/posts`, newPost);
@@ -70,6 +75,7 @@ const Share = () => {
         <hr className="shareHr" />
         <form
           className="shareButtons"
+          encType="multipart/form-data"
           onSubmit={(e) => {
             handleSubmit(e);
           }}

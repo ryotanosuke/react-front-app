@@ -22,6 +22,8 @@ const initialState = {
 
 const proxy = "https://real-sns-nodejs.herokuapp.com/api";
 
+// const proxy = "http://localhost:5000/api";
+
 // 状態をグローバルに管理する
 // 使用する時はAuthContextをuseContextで受け取る
 export const AuthContext = createContext(initialState);
